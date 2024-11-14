@@ -542,10 +542,10 @@ body {
   transform: translateY(0);
 }
 .hero-section .particle.left {
-  left: 8.1816470364vw;
+  left: 10.0593856318vw;
 }
 .hero-section .particle.right {
-  right: 14.9351422782vw;
+  right: 8.5336366926vw;
 }
 @keyframes float {
   from {
@@ -847,7 +847,7 @@ body {
 }
 @media (max-width: 1200px) {
   .services-section .cards-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 992px) {
