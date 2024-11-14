@@ -371,7 +371,7 @@ body {
       .icon-circle {
         position: absolute;
         top: -40px;
-        background: $icon-circle-color;
+        background: rgba($link-hover-color, 0.8);
         width: 100px;
         height: 100px;
         border-radius: 50%;

@@ -17,7 +17,7 @@ body {
 }
 
 :root {
-  --marquee-width: 55vw;
+  --marquee-width: 60vw;
   --marquee-height: 7vh;
   --marquee-elements-displayed: 5;
   --marquee-element-width: calc(var(--marquee-width) / 13);
@@ -542,10 +542,10 @@ body {
   transform: translateY(0);
 }
 .hero-section .particle.left {
-  left: 10.0059424133vw;
+  left: 7.2511930032vw;
 }
 .hero-section .particle.right {
-  right: 10.6526203301vw;
+  right: 10.7803330822vw;
 }
 @keyframes float {
   from {
@@ -818,7 +818,7 @@ body {
 .services-section .cards-grid .card-container .icon-circle {
   position: absolute;
   top: -40px;
-  background: radial-gradient(circle, #51a5f4, #051e3e);
+  background: rgba(81, 165, 244, 0.8);
   width: 100px;
   height: 100px;
   border-radius: 50%;
