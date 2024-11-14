@@ -1,0 +1,113 @@
+// Animation fade-in-up pour faire apparaître et monter un élément
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Animation pulse pour créer un effet de "battement" ou de pulsation
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Mixin pour l'animation fadeInUp avec durée et délai personnalisables
+@mixin fadeInUp-animation($duration: 1s, $delay: 0s) {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp $duration ease-out forwards;
+  animation-delay: $delay;
+}
+
+// Animation fade-in pour une simple apparition en fondu
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+
+// Animation fade-out avec légère augmentation de taille pour un effet de disparition
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+// Classe utilitaire pour appliquer fadeOut
+.fadeOut {
+  animation: fadeOut 0.8s ease forwards;
+}
+
+// Animation pour faire tourner un gradient de fond
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Animation du dégradé
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%; // Déplacement horizontal pour bien voir l'effet de transition
+  }
+}
+
+// Animation pour les particules
+@keyframes float {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+// Animation du marquee
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(-1 * var(--marquee-element-width) * var(--marquee-elements))
+    );
+  }
+}

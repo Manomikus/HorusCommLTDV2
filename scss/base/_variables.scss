@@ -1,0 +1,34 @@
+body {
+  background: url(/assets/images/background.png);
+}
+// Couleurs
+$primary-color: #0e76d6;
+$secondary-color: #ffffff;
+$icon-circle-color: radial-gradient(circle, #51a5f4, #051e3e);
+$link-hover-color: #51a5f4;
+$hero-item-color: #0056b3;
+$background-color: #000000;
+
+// Polices
+$font-main: "Poppins", sans-serif;
+$font-heading: "Orbitron", sans-serif;
+
+// Animations
+$animation-duration: 0.3s;
+$animation-ease: ease-in-out;
+
+// Breakpoints pour responsive
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-large-desktop: 1200px;
+$breakpoint-extra-large-desktop: 1400px;
+
+// Variables pour le marquee
+:root {
+  --marquee-width: 60vw;
+  --marquee-height: 7vh;
+  --marquee-elements-displayed: 5;
+  --marquee-element-width: calc(var(--marquee-width) / 13);
+  --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+}

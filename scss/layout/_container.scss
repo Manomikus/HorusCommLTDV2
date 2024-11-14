@@ -1,0 +1,11 @@
+.container {
+  background: url("/assets/images/background.png") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: grid;
+  grid: 10vh 1fr minmax(17vh, auto) 5vh / auto;
+}
+
+.hidden-content .container {
+  display: none;
+}

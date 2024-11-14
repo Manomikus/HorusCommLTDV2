@@ -1,0 +1,37 @@
+.hero {
+  display: block;
+  margin: auto;
+  .hero-content {
+    place-items: center;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: 1rem;
+    padding: 0 1rem;
+
+    .logo {
+      @include respond-to(mobile) {
+        width: 70vw;
+      }
+      width: 50%;
+      @include fadeInUp-animation(2.5s);
+      @include neon-effect($primary-color, 15px);
+      height: auto;
+    }
+    .door {
+      @include respond-to(mobile) {
+        width: 12vw;
+      }
+      width: 10%;
+      height: auto;
+      @include fadeInUp-animation(1s, 2.5s);
+      @include neon-effect($primary-color);
+    }
+
+    .enter-button {
+      @include fadeInUp-animation(1s, 2.8s);
+      animation: fadeInUp 1s ease-out 2.8s forwards,
+        pulse 3s ease-in-out 3.8s infinite;
+      margin-bottom: 5rem;
+    }
+  }
+}

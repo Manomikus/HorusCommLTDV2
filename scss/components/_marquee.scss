@@ -1,0 +1,75 @@
+body
+// Style du marquee
+.marquee {
+  width: var(--marquee-width);
+  height: var(--marquee-height);
+  background: $secondary-color; // Couleur de fond du marquee
+  overflow: hidden;
+  position: relative;
+  filter: drop-shadow(10px 10px 20px $primary-color);
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    width: 4rem;
+    height: 100%;
+    content: "";
+    z-index: 1;
+    @include respond-to(mobile) {
+      width: 2rem;
+    }
+  }
+
+  &:before {
+    left: 0;
+    transform: rotateY(-2deg);
+    background: linear-gradient(to right, #063970 0%, transparent 100%);
+  }
+
+  &:after {
+    right: 0;
+    transform: rotateY(2deg);
+    background: linear-gradient(to left, #063970 0%, transparent 100%);
+  }
+}
+
+// Style du contenu du marquee
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling var(--marquee-animation-duration) infinite alternate;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: var(--marquee-element-width);
+    max-height: 100%;
+    font-size: calc(var(--marquee-height) * 3 / 4);
+    white-space: nowrap;
+    color: $secondary-color; // Texte dans chaque élément
+    margin-left: 4rem;
+
+    img {
+      width: 100%;
+      filter: drop-shadow(0 1px 5px $primary-color);
+      // border: 2px solid $secondary-color; // Bordure autour des images/
+    }
+  }
+}
+
+// Styles responsifs
+@include respond-to(mobile) {
+  :root {
+    --marquee-width: 90vw;
+    --marquee-height: 9vh;
+    --marquee-elements-displayed: 7;
+    --marquee-element-width: calc(var(--marquee-width) / 4);
+  }
+  .marquee-content li {
+    margin-left: 2rem;
+  }
+}

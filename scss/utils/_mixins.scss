@@ -1,0 +1,52 @@
+// Mixin pour les media queries
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $breakpoint-mobile) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $breakpoint-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: $breakpoint-desktop) {
+      @content;
+    }
+  } @else if $breakpoint == large-desktop {
+    @media (max-width: $breakpoint-large-desktop) {
+      @content;
+    }
+  } @else if $breakpoint == extra-large-desktop {
+    @media (min-width: $breakpoint-extra-large-desktop) {
+      @content;
+    }
+  }
+}
+
+// Mixin pour les ombres et effets néon
+@mixin neon-effect($color, $intensity: 10px) {
+  filter: drop-shadow(0 0 $intensity $color);
+}
+
+// 4. Mixin pour le texte clippé avec dégradé
+@mixin text-dual-gradient($color1, $color2) {
+  background: linear-gradient(90deg, $color1 50%, $color2 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// 5. Mixin pour les ombres personnalisées
+@mixin box-shadow($color: rgba(0, 0, 0, 0.15), $blur: 10px, $spread: 0) {
+  box-shadow: 0 0 $blur $spread $color;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $ease: ease-in-out) {
+  transition: $property $duration $ease;
+}
+
+@mixin transitionButton(
+  $property: background-position 0.4s $animation-ease,
+  $transform: transform 0.3s ease-in-out
+) {
+  transition: $property, $transform;
+}

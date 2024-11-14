@@ -1,0 +1,61 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url(/assets/images/background.png) no-repeat center center;
+  background-size: cover;
+  z-index: 1000;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity, 0.8s ease;
+  &.hidden {
+    opacity: 0;
+    pointer-events: none; //
+    display: none; /* Supprime l'écran après l'animation */
+  }
+
+  .loading-container {
+    text-align: center;
+    margin-top: 2rem;
+
+    .loading-text {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+      animation: pulse 1s infinite;
+    }
+
+    .progress {
+      width: 80%;
+      height: 10px;
+      background-color: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 10px auto;
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #0e76d6, #51a5f4);
+        width: 0;
+        transition: width 0.1s ease;
+      }
+    }
+
+    .progress-text {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    .logo {
+      width: 40vw;
+
+      @include neon-effect($primary-color, 15px);
+      height: auto;
+      transform: rotateX(0deg); /* Initialiser la rotation à 0 */
+      transition: transform 0.1s linear;
+    }
+  }
+}

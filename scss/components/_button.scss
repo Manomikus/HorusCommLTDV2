@@ -1,0 +1,93 @@
+.enter-button button {
+  font-size: 1.5vw;
+  @include respond-to(mobile){
+    font-size: 4.2vw;
+  }
+  text-wrap: nowrap;
+  @include text-dual-gradient(
+    $primary-color,
+    $secondary-color
+  ); // Applique le dégradé initialement
+  background-size: 200%;
+  background-position: 100%;
+  color: $secondary-color;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  @include neon-effect($primary-color);
+  @include transitionButton();
+
+  &:hover {
+    background-position: 0%;
+    transform: scale(1.05);
+    @include neon-effect(
+      $primary-color,
+      15px
+    ); // Intensifie l'effet néon au survol
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// toggle-button
+
+.toggle-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  @media only screen and (max-width: $breakpoint-tablet) {
+    display: flex;
+  }
+
+  span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  &.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  &.open span:nth-child(2) {
+    opacity: 0;
+  }
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+@include respond-to(tablet) {
+  nav {
+    display: none; // Cacher le menu par défaut en mobile
+  }
+}
+nav.open-menu {
+  position: absolute;
+  padding: 2rem 0;
+  display: flex;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 118, 214, 0.3) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+
+  ul {
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0;
+    }
+  }
+}

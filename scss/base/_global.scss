@@ -1,0 +1,50 @@
+// Style global du body
+body {
+  font-family: $font-main;
+  color: $secondary-color;
+}
+
+
+// Liens
+ul {
+  list-style: none;
+}
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  transition: all 0.5s $animation-ease;
+
+  &:hover {
+    color: lighten($link-hover-color, 10%);
+    filter: drop-shadow(0 0 10px $primary-color);
+  }
+}
+
+// Titres
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  color: $primary-color;
+  margin: 0;
+  padding: 0;
+}
+
+// Paragraphes
+p {
+  margin: 0;
+  padding: 0;
+}
+
+// Boutons (style par défaut pour tous les boutons)
+button {
+  font-family: $font-main;
+  transition: background-color $animation-duration $animation-ease,
+    transform $animation-duration $animation-ease;
+  cursor: pointer;
+}

@@ -1,0 +1,16 @@
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: $font-heading;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+
+  p {
+    filter: drop-shadow(0 0 10px $primary-color);
+   
+    @media screen and (max-width: 768px) {
+      font-size: 2vw;
+    }
+  }
+}

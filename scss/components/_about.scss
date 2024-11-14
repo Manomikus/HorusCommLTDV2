@@ -1,0 +1,541 @@
+// Styles de fond du body
+body {
+  background: url("/assets/images/background.png") no-repeat center center fixed;
+  background-size: cover;
+  @include respond-to (mobile){
+    background-position: inherit;
+  }
+ 
+}
+
+.hero-section {
+  background: url("/assets/images/backgroundp2.png") no-repeat center center;
+  background-size: cover;
+  height: calc(100vh - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  color: $secondary-color;
+  filter: drop-shadow(0 0 20px $primary-color);
+  position: relative;
+  z-index: 1;
+  // Fond dégradé
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(14, 117, 214, 0.679),
+      rgba(0, 0, 0, 0.309),
+      rgba(102, 51, 153, 0.66)
+    );
+  }
+
+  // Responsivité de la hero section
+  @include respond-to(mobile) {
+    padding: 0;
+  }
+
+  // Conteneur pour les particules
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    pointer-events: none; // Empêche les interactions avec les particules
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px; // Taille réduite des particules
+    height: 4px;
+    background-color: rgba(81, 165, 244, 0.7);
+    border-radius: 50%;
+    animation: float 8s infinite linear;
+    transform: translateY(0);
+
+    &.left {
+      left: calc(
+        5vw + (10vw * random())
+      ); // Position aléatoire sur le côté gauche
+    }
+
+    &.right {
+      right: calc(
+        5vw + (10vw * random())
+      ); // Position aléatoire sur le côté droit
+    }
+  }
+
+  // Animation pour les particules
+  @keyframes float {
+    from {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-120vh) scale(0.5); // Particules flottantes
+      opacity: 0;
+    }
+  }
+
+  .hero-section-items {
+    max-height: 70vh;
+    width: 100%;
+    padding: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vw;
+    overflow: hidden;
+
+    .title-box {
+      background: $hero-item-color;
+      max-width: 80%;
+      padding: 2rem 3rem;
+      border-radius: 1.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+
+      h1 {
+        color: $secondary-color;
+        font-size: 3vw;
+        text-align: center;
+        font-family: $font-heading;
+        text-shadow: 10px 20px 12px rgba(0, 0, 0, 0.38);
+        filter: drop-shadow(0 0 10px $primary-color);
+        line-height: 1.2;
+        @include fadeInUp-animation(1s);
+      }
+    }
+
+    .text-box {
+      max-width: 100%;
+      overflow-y: auto;
+      padding: 1rem;
+
+      p {
+        font-size: 1.2vw;
+        line-height: 1.6;
+        letter-spacing: 0.1rem;
+        text-align: justify;
+        color: lighten($secondary-color, 20%);
+        @include fadeInUp-animation(1.2s, 0.5s);
+      }
+    }
+  }
+
+  // Responsive adjustments for .hero-section-items
+  @include respond-to(desktop) {
+    .hero-section-items {
+      padding: 2rem;
+
+      .title-box h1 {
+        font-size: 4vw;
+      }
+      .text-box p {
+        font-size: 1.5vw;
+      }
+    }
+  }
+
+  @include respond-to(tablet) {
+    .hero-section-items {
+      padding: 1.5rem;
+
+      .title-box h1 {
+        font-size: 5vw;
+      }
+      .text-box p {
+        font-size: 1.8vw;
+      }
+    }
+  }
+
+  // En mobile, on permet le wrap du titre et ajuste la taille
+  @include respond-to(mobile) {
+    .hero-section-items {
+      padding: 1rem;
+
+      .title-box {
+        white-space: normal;
+
+        h1 {
+          font-size: 6vw;
+        }
+      }
+
+      .text-box {
+        width: 90%;
+        p {
+          font-size: 2.2vw;
+        }
+      }
+    }
+  }
+}
+
+// Section des services
+.services-section {
+  color: $secondary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  .header-services {
+    margin: 5vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    padding: 0 2rem;
+    text-wrap: nowrap;
+
+    // Responsive adaptations for header services
+    @include respond-to(mobile) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    @include respond-to(tablet) {
+      padding: 0 5rem;
+    }
+
+    // Section title styles
+    .section-title {
+      font-size: 3vw; // Base font-size for large screens
+      color: $link-hover-color;
+      font-family: $font-heading;
+      filter: drop-shadow(0 0 10px $primary-color);
+
+      // Responsive font sizes for different breakpoints
+      @include respond-to(desktop) {
+        font-size: 5vw;
+      }
+      @include respond-to(tablet) {
+        font-size: 6vw;
+      }
+      @include respond-to(mobile) {
+        font-size: 7vw;
+        text-align: center;
+      }
+    }
+
+    // Image styles
+    img {
+      max-width: 500px;
+      filter: drop-shadow(0 0 10px $primary-color);
+
+      // Responsive image widths
+      @include respond-to(desktop) {
+        max-width: 50%;
+      }
+      @include respond-to(mobile) {
+        max-width: 80%;
+      }
+    }
+  }
+  .partners-section {
+    h2 {
+      text-align: center;
+      font-size: 2vw; // Base font-size for large screens
+      color: #51a5f4;
+      font-family: $font-heading;
+      filter: drop-shadow(0 0 10px $primary-color);
+      margin-bottom: 1rem;
+      @include respond-to(mobile) {
+        font-size: 6vw;
+      }
+    }
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+    place-items: center;
+
+    .card-container {
+      position: relative;
+      width: 280px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      perspective: 1500px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      // Responsiveness for card-container
+      @include respond-to(large-desktop) {
+        &:last-child,
+        &:nth-child(9) {
+          grid-column: span 2;
+          place-self: start;
+        }
+        &:nth-child(9) {
+          place-self: end;
+        }
+      }
+      @include respond-to(desktop) {
+        &:nth-child(9) {
+          grid-column: inherit;
+        }
+        &:last-child {
+          grid-column: 1/-1;
+          place-self: center;
+        }
+      }
+      @include respond-to(tablet) {
+        &:last-child {
+          grid-column: inherit;
+        }
+      }
+      // Animation au survol
+      &:hover .card-front {
+        transform: translateY(-10px) rotateX(8deg) scale(1.05);
+        box-shadow: 0px 20px 30px rgba($primary-color, 0.4);
+      }
+
+      &:hover .card-back {
+        transform: scale(1.1);
+        filter: blur(8px) brightness(0.8);
+      }
+
+      &.active {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateY(360deg) scale(1.3);
+        z-index: 1000;
+        opacity: 1;
+      }
+
+      .card-back {
+        position: absolute;
+        top: -10px;
+        background: linear-gradient(
+          135deg,
+          rgba(14, 118, 214, 0.8),
+          rgba(102, 51, 153, 0.6)
+        );
+        border-radius: 20px;
+        z-index: 1;
+        transform: scale(1.05);
+        width: 80%;
+        height: 100%;
+        transition: transform 0.5s ease, filter 0.5s ease;
+      }
+
+      .card-front {
+        position: relative;
+        background: #051e3e;
+        padding: 2rem;
+        border-radius: 20px;
+        z-index: 2;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.467);
+        text-align: center;
+        color: $secondary-color;
+        font-family: "Orbitron", sans-serif;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        height: 420px;
+
+     
+
+        h3 {
+          font-size: 1.5rem;
+          margin: 2rem 0 0.5rem;
+          color: #51a5f4;
+        }
+
+        p {
+          font-size: 1.1rem;
+          letter-spacing: 0.03rem;
+          line-height: 1.4rem;
+          color: $secondary-color;
+          font-family: $font-main;
+        }
+      }
+
+      .icon-circle {
+        position: absolute;
+        top: -40px;
+        background: $icon-circle-color;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        z-index: 3;
+        box-shadow: 0px 4px 12px rgba(81, 165, 244, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          filter: drop-shadow(0 0 10px rgba(81, 165, 244, 0.8));
+        }
+      }
+      &:hover .icon-circle {
+        transform: translateY(-15px) scale(1.1);
+        box-shadow: 0px 8px 20px rgba(81, 165, 244, 0.8);
+      }
+    }
+
+    // Grid responsivity
+    @include respond-to(extra-large-desktop) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    // @include respond-to(desktop) {
+    //   grid-template-columns: repeat(3, 1fr);
+    // }
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Section du formulaire de contact avec animation de fond
+.contact-form-section {
+  background: rgba($primary-color, 0.8);
+  padding: 3rem;
+  border-radius: 15px;
+  color: $secondary-color;
+  text-align: center;
+  max-width: 600px;
+  margin: 3rem auto;
+  position: relative;
+  overflow: hidden;
+  @include box-shadow(rgba(0, 0, 0, 0.3), 20px);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+      45deg,
+      $primary-color,
+      $link-hover-color,
+      #663399
+    );
+    animation: rotateGradient 5s infinite linear;
+    opacity: 0.1;
+    top: -100%;
+    left: -100%;
+    transform: rotate(30deg);
+    z-index: -1;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-family: $font-heading;
+    color: $secondary-color;
+    text-shadow: 0 0 8px $link-hover-color, 0 0 10px $primary-color;
+    @include fadeInUp-animation(1s);
+  }
+
+  p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: lighten($secondary-color, 20%);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    label {
+      font-size: 0.9rem;
+      color: lighten($secondary-color, 20%);
+      margin-bottom: 0.3rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      color: $secondary-color;
+      background-color: rgba($background-color, 0.5);
+      border: 1px solid $primary-color;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba($link-hover-color, 0.3);
+      @include transition(all, 0.4s, $animation-ease);
+
+      &:focus {
+        outline: none;
+        background-color: rgba($background-color, 0.7);
+        border-color: $link-hover-color;
+        box-shadow: 0px 4px 15px rgba($link-hover-color, 0.7);
+      }
+    }
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    color: $secondary-color;
+    background: linear-gradient(90deg, $primary-color, $link-hover-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-size: 200%;
+    background-position: 100%;
+    @include transitionButton();
+
+    &:hover {
+      background-position: 0%;
+      transform: scale(1.05);
+      box-shadow: 0px 8px 20px rgba($link-hover-color, 0.5);
+    }
+  }
+
+  // Adaptations responsives
+  @include respond-to(tablet) {
+    padding: 2rem;
+    max-width: 90%;
+  }
+
+  @include respond-to(mobile) {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .contact-form {
+      gap: 1rem;
+    }
+  }
+}

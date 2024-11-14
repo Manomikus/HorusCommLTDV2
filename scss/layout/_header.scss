@@ -1,0 +1,47 @@
+header {
+  flex-basis: 10vh;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 2rem 2rem;
+  ul {
+    display: flex;
+    li {
+      margin-left: 2rem;
+    }
+  }
+
+  a {
+    margin: 0;
+  }
+  img {
+    max-width: 150px;
+  }
+ 
+}
+/* En tete  */
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+#main-header.transparent {
+  background-color: transparent;
+}
+
+#main-header.translucent {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#main-header.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
