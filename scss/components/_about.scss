@@ -305,6 +305,7 @@ body {
       &:hover .card-front {
         transform: translateY(-10px) rotateX(8deg) scale(1.05);
         box-shadow: 0px 20px 30px rgba($primary-color, 0.4);
+        @include neon-effect($primary-color);
       }
 
       &:hover .card-back {
@@ -381,6 +382,7 @@ body {
         padding: 1rem;
         z-index: 3;
         box-shadow: 0px 4px 12px rgba(81, 165, 244, 0.5);
+        
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         img {
@@ -392,6 +394,7 @@ body {
       &:hover .icon-circle {
         transform: translateY(-15px) scale(1.1);
         box-shadow: 0px 8px 20px rgba(81, 165, 244, 0.8);
+       
       }
     }
 
@@ -399,12 +402,14 @@ body {
     @include respond-to(extra-large-desktop) {
       grid-template-columns: repeat(5, 1fr);
     }
-    @include respond-to(desktop) {
-      grid-template-columns: repeat(2, 1fr);
+    @include respond-to(large-desktop) {
+      grid-template-columns: repeat(4, 1fr);
     }
-    // @include respond-to(desktop) {
-    //   grid-template-columns: repeat(3, 1fr);
-    // }
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+  
     @include respond-to(tablet) {
       grid-template-columns: repeat(2, 1fr);
     }
