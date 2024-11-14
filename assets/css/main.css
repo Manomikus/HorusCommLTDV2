@@ -542,10 +542,10 @@ body {
   transform: translateY(0);
 }
 .hero-section .particle.left {
-  left: 6.3620884518vw;
+  left: 8.1816470364vw;
 }
 .hero-section .particle.right {
-  right: 5.8402866701vw;
+  right: 14.9351422782vw;
 }
 @keyframes float {
   from {
